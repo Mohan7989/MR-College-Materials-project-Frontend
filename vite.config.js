@@ -4,22 +4,13 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
-    port: 3000,
-    proxy: {
-      '/api': {
-        target: 'https://new-4rqi.onrender.com',
-        changeOrigin: true,
-        secure: false
-      }
-    }
+    port: 3000
   },
   build: {
     outDir: 'dist',
-    rollupOptions: {
-      input: {
-        main: './index.html'
-      }
-    }
+    sourcemap: false
   },
-  publicDir: 'public'
+  preview: {
+    port: 3000
+  }
 })
